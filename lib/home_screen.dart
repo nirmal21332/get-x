@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/counter_controller.dart';
-import 'package:getx/screentwo.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,15 +20,23 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Home'),
         centerTitle: true,
       ),
-      body: Center(
-        child:Obx((){
-          return Text(controller.count.toString(),style: TextStyle(fontSize: 50),);
-        }),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          controller.Increment();
-        },
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Notifications'),
+              ),
+              Obx((){
+                return Switch(value:controller.Notification.value, onChanged: (value){
+                  controller.switchcase(value);
+                });
+              })
+            ],
+          )
+        ],
       ),
     );
   }
