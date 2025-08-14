@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/home_screen.dart';
+import 'package:getx/screentwo.dart';
+
+import 'languages.dart';
 
 void main() {
   runApp(const MyApp());
